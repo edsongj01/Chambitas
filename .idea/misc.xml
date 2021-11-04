@@ -8,8 +8,21 @@
         <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/activity_ingresa_usuario.xml" value="0.22" />
         <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/activity_ingresa_usuario_pactivity.xml" value="0.1743659420289855" />
         <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/activity_maps.xml" value="0.1" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/activity_menu.xml" value="0.22" />
         <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/activity_registro.xml" value="0.25" />
         <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/activity_splash.xml" value="0.2" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/app_bar_menu.xml" value="0.13179347826086957" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/content_menu.xml" value="0.20416666666666666" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/fragment_acerca_de.xml" value="0.20416666666666666" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/fragment_blank.xml" value="0.16304347826086957" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/fragment_cambiocontra.xml" value="0.25" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/fragment_gallery.xml" value="0.22" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/fragment_slideshow.xml" value="0.25" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/layout/nav_header_menu.xml" value="0.13179347826086957" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/menu/activity_menu2_drawer.xml" value="0.67" />
+        <entry key="..\:/.Personal/Universidad/10mo/Armando/Integradora/Chambitas/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
