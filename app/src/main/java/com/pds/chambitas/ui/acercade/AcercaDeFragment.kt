@@ -7,11 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.pds.chambitas.R
 import androidx.lifecycle.Observer
 import com.pds.chambitas.databinding.FragmentAcercaDeBinding
-import com.pds.chambitas.databinding.FragmentHomeBinding
-import com.pds.chambitas.ui.home.HomeViewModel
 
 class AcercaDeFragment : Fragment() {
 

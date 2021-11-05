@@ -23,14 +23,11 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.pds.chambitas.databinding.ActivityMenuBinding
 import com.pds.chambitas.ui.slideshow.CambiocontraFragment
 
-class MenuActivity : AppCompatActivity(), OnMapReadyCallback {
-
-    private lateinit var mMap: GoogleMap
+class MenuActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMenuBinding
 
-//    private var imageView: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,22 +54,6 @@ class MenuActivity : AppCompatActivity(), OnMapReadyCallback {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
-
-
-//        imageView = imageView!!.findViewById<ImageView>(R.id.btnCambiocontra)
-//
-//        imageView!!.setOnClickListener(View.OnClickListener {
-//            val cambiocontraFragment = CambiocontraFragment()
-//            val fragmentTransaction: androidx.fragment.app.FragmentTransaction = supportFragmentManager.beginTransaction()
-//            fragmentTransaction.replace(R.id.fragmentContainerView, cambiocontraFragment)
-//            fragmentTransaction.commit()
-//        })
-
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -86,12 +67,4 @@ class MenuActivity : AppCompatActivity(), OnMapReadyCallback {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onMapReady(googleMap: GoogleMap) {
-        mMap = googleMap
-
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-    }
 }
