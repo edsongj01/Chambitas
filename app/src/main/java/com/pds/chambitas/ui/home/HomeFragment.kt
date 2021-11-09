@@ -4,26 +4,81 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.pds.chambitas.R
+import com.pds.chambitas.body.PedirservicioFragment
 import com.pds.chambitas.databinding.FragmentHomeBinding
+import com.pds.chambitas.ui.slideshow.CambiocontraFragment
+import com.pds.chambitas.util.LocationService
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.fragment_pedirservicio.view.*
+import kotlinx.android.synthetic.main.fragment_slideshow.*
 
 class HomeFragment : Fragment() {
+
+    private lateinit var mMap: GoogleMap
+    private var button: Button? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        val root = inflater.inflate(R.layout.fragment_home, container, false)
+
+        root.btnCentrarUbi.setOnClickListener {
+
+            val punto = LatLng(LocationService.loc.latitude, LocationService.loc.longitude)
+            mMap.addMarker(MarkerOptions().position(punto).title("Yo"))
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(punto))
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(punto,16.0f))
+            println("ENTRO")
+        }
+
+        val nav = Navigation.createNavigateOnClickListener(R.id.action_nav_home_to_pedirservicioFragment)
+        root.btnBusquedaHome.setOnClickListener {
+            nav.onClick(it)
+        }
+//
+//
+//        button = root.findViewById(R.id.btnBusquedaHome)
+//        button!!.setOnClickListener(View.OnClickListener {
+//
+//            val fragmentManager = requireActivity().supportFragmentManager
+//
+//            fragmentManager.commit {
+//                setReorderingAllowed(true)
+//                replace<PedirservicioFragment>(R.id.fragmentPedirservicio)
+//            }
+//
+//            //Ocultar botones
+//            fragmentPedirservicio.setVisibility(View.VISIBLE)
+//            btnCentrarUbi.setVisibility(View.GONE)
+//            btnBusquedaHome.setVisibility(View.GONE)
+//
+//
+////            Toast.makeText(
+////                context,
+////                "HOLAAAA",
+////                Toast.LENGTH_LONG
+////            ).show()
+//        })
+
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

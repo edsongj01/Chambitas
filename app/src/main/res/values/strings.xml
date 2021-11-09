@@ -13,7 +13,9 @@
     <string name="menu_slideshow">Configuracion</string>
     <string name="menu_acercade">Acerca de Chambitas</string>
     <string name="menu_config">Configuracion</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

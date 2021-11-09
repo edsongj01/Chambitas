@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.pds.chambitas.MenuActivity
 import com.pds.chambitas.R
+import com.pds.chambitas.util.LocationService
 import kotlinx.android.synthetic.main.activity_contrasenia_usuario.*
 
 class ContraseniaUsuarioActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class ContraseniaUsuarioActivity : AppCompatActivity() {
 
         btnSiguienteInCon.setOnClickListener {
             startActivity(Intent(this,MenuActivity::class.java))
+            startService(Intent(this, LocationService::class.java))
         }
 
             btnBack.setOnClickListener {

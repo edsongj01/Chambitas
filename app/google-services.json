@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1006317092366",
+    "project_id": "chambitasorg",
+    "storage_bucket": "chambitasorg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006317092366:android:4bc84c7ba32765d2d1065f",
+        "android_client_info": {
+          "package_name": "com.pds.chambitas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006317092366-n7rc1j6485tbenrgfpamiopnmsdc1o36.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pds.chambitas",
+            "certificate_hash": "16994332196628d739a93f7e5061e1c10e1b9e94"
+          }
+        },
+        {
+          "client_id": "1006317092366-tfn126uru304395aqk77safg8il6ivto.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgMVIs_Xv6Pof5ATKLHcFwxxcERFw-opM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006317092366-tfn126uru304395aqk77safg8il6ivto.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

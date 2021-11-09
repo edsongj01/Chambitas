@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import com.pds.chambitas.login.IngresaUsuarioActivity
 import com.pds.chambitas.splash.SplashActivity
+import com.pds.chambitas.util.LocationService
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         btnIngresar.setOnClickListener {
             startActivity(Intent(this,IngresaUsuarioActivity::class.java))
-        }
+         }
     }
 
 }
