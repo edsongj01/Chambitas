@@ -18,9 +18,9 @@ class ContraseniaUsuarioActivity : AppCompatActivity() {
             startService(Intent(this, LocationService::class.java))
         }
 
-            btnBack.setOnClickListener {
-                super.onBackPressed()
-            }
+        btnBack.setOnClickListener {
+            super.onBackPressed()
+        }
 
     }
 }

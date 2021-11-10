@@ -1,11 +1,7 @@
 package com.pds.chambitas
 
-import android.app.FragmentTransaction
 import android.os.Bundle
 import android.view.Menu
-import android.view.View
-import android.widget.ImageView
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -14,14 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
 import com.pds.chambitas.databinding.ActivityMenuBinding
-import com.pds.chambitas.ui.slideshow.CambiocontraFragment
 
 class MenuActivity : AppCompatActivity() {
 
@@ -44,7 +33,7 @@ class MenuActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_acercade, R.id.cambiocontraFragment, R.id.pedirservicioFragment, R.id.elegirdestinoFragment, R.id.confirmarservicioFragment, R.id.cerrarsesionFragment
+                R.id.nav_home, R.id.nav_serviciossolicitados, R.id.nav_configuracion, R.id.nav_acercade, R.id.cambiocontraFragment, R.id.pedirservicioFragment, R.id.elegirdestinoFragment, R.id.confirmarservicioFragment, R.id.cerrarsesionFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

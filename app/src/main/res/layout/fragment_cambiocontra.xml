@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.slideshow.CambiocontraFragment">
+    tools:context=".ui.configuracion.CambiocontraFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -92,11 +92,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/boton"
-            android:text="Guardar"
+            android:background="@drawable/shapeboton"
+            android:textSize="25sp"
             android:textAllCaps="false"
+            android:text="Guardar"
             android:textColor="@color/white"
-            android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"

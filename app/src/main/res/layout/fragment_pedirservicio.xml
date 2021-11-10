@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_pedirServ"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/nav_pedirServ"
+    android:background="#00FFFFFF"
     tools:context="body.PedirservicioFragment">
 
     <fragment
@@ -50,7 +51,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <TextView
             android:id="@+id/etxtIngresaDestino"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
@@ -118,9 +119,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/boton"
-            android:text="Confirmar"
+            android:background="@drawable/shapeboton"
+            android:textSize="25sp"
             android:textAllCaps="false"
+            android:text="Confirmar"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

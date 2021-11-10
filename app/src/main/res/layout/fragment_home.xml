@@ -29,23 +29,14 @@
         android:layout_width="326dp"
         android:layout_height="58dp"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="@color/boton"
+        android:background="@drawable/shapeboton"
+        android:textSize="25sp"
+        android:textAllCaps="false"
         android:text="¿Que estas buscando?"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentPedirservicio"
-        android:name="com.pds.chambitas.body.PedirservicioFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="382dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

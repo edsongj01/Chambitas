@@ -16,16 +16,20 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.pds.chambitas.ui.gallery.GalleryFragment"
+        android:id="@+id/nav_serviciossolicitados"
+        android:name="com.pds.chambitas.ui.serviciossolicitados.ServiciossolicitadosFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_serviciossolicitados" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.pds.chambitas.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_configuracion"
+        android:name="com.pds.chambitas.ui.configuracion.ConfiguracionFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_configuracion" >
+        <action
+            android:id="@+id/action_nav_configuracion_to_cambiocontraFragment"
+            app:destination="@id/cambiocontraFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_acercade"
         android:name="com.pds.chambitas.ui.acercade.AcercaDeFragment"
@@ -33,9 +37,13 @@
         tools:layout="@layout/fragment_acerca_de" />
     <fragment
         android:id="@+id/cambiocontraFragment"
-        android:name="com.pds.chambitas.ui.slideshow.CambiocontraFragment"
+        android:name="com.pds.chambitas.ui.configuracion.CambiocontraFragment"
         android:label="fragment_cambiocontra"
-        tools:layout="@layout/fragment_cambiocontra" />
+        tools:layout="@layout/fragment_cambiocontra" >
+        <action
+            android:id="@+id/action_cambiocontraFragment_to_nav_configuracion"
+            app:destination="@id/nav_configuracion" />
+    </fragment>
     <fragment
         android:id="@+id/pedirservicioFragment"
         android:name="com.pds.chambitas.body.PedirservicioFragment"
