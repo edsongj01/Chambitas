@@ -18,12 +18,6 @@ class PedirservicioFragment : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_pedirservicio, container, false)
 
-
-        val back = Navigation.createNavigateOnClickListener(R.id.action_pedirservicioFragment_to_nav_home)
-        root.btnBack.setOnClickListener {
-            back.onClick(it)
-        }
-
         val nav = Navigation.createNavigateOnClickListener(R.id.action_pedirservicioFragment_to_elegirdestinoFragment)
         root.etxtIngresaDestino.setOnClickListener {
             nav.onClick(it)

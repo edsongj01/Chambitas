@@ -23,29 +23,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
             android:text="Cambiar mi contraseña"
             android:textColor="@color/textmenu"
             android:textSize="30dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayoutCC"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.312" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayoutCC"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_width="351dp"
+            android:layout_height="304dp"
+            android:layout_marginTop="30dp"
             android:background="@color/white"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.271">
+            app:layout_constraintTop_toBottomOf="@+id/textViewCC">
 
 
             <TextView
@@ -89,20 +82,16 @@
         <Button
             android:id="@+id/btnContraG"
             android:layout_width="322dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="30dp"
             android:background="@drawable/shapeboton"
-            android:textSize="25sp"
-            android:textAllCaps="false"
             android:text="Guardar"
+            android:textAllCaps="false"
             android:textColor="@color/white"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayoutCC"
-            app:layout_constraintVertical_bias="0.217" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

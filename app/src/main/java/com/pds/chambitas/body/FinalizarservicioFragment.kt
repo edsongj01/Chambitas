@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.pds.chambitas.R
 import kotlinx.android.synthetic.main.fragment_aceptacionservicio.view.*
-import kotlinx.android.synthetic.main.fragment_aceptacionservicio.view.btnBack
 import kotlinx.android.synthetic.main.fragment_finalizarservicio.view.*
 
 
@@ -22,9 +21,6 @@ class FinalizarservicioFragment : Fragment() {
         var root = inflater.inflate(R.layout.fragment_finalizarservicio, container, false)
 
         val atras = Navigation.createNavigateOnClickListener(R.id.action_finalizarservicioFragment_to_nav_home)
-        root.btnBack.setOnClickListener {
-            atras.onClick(it)
-        }
         root.btnFinalizarServicio.setOnClickListener {
             atras.onClick(it)
         }

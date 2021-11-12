@@ -9,7 +9,6 @@ import androidx.navigation.Navigation
 import com.pds.chambitas.R
 import kotlinx.android.synthetic.main.fragment_aceptacionservicio.view.*
 import kotlinx.android.synthetic.main.fragment_confirmarservicio.view.*
-import kotlinx.android.synthetic.main.fragment_confirmarservicio.view.btnBack
 
 class AceptacionservicioFragment : Fragment() {
 
@@ -20,11 +19,6 @@ class AceptacionservicioFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var root = inflater.inflate(R.layout.fragment_aceptacionservicio, container, false)
-
-        val back = Navigation.createNavigateOnClickListener(R.id.action_aceptacionservicioFragment_to_confirmarservicioFragment)
-        root.btnBack.setOnClickListener {
-            back.onClick(it)
-        }
 
         val cancelar = Navigation.createNavigateOnClickListener(R.id.action_aceptacionservicioFragment_to_nav_home)
         root.btnCancelarServicio.setOnClickListener {
