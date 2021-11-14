@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:background="@color/fondoEditText"
         android:gravity="center"
         android:orientation="horizontal"
@@ -21,27 +21,28 @@
             android:id="@+id/textView20"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:gravity="right"
             android:text="Chat con"
-            android:textColor="@color/textmenu"
-            android:textSize="20sp" />
+            android:textColor="@color/black"
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/textView31"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="25dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:text="USUARIO"
-            android:textColor="@color/textmenu"
-            android:textSize="20sp" />
+            android:textColor="@color/black"
+            android:textSize="25sp" />
     </LinearLayout>
 
     <ListView
         android:layout_width="380dp"
-        android:layout_height="600dp"
+        android:layout_height="550dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

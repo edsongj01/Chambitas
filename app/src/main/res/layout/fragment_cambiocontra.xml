@@ -18,27 +18,47 @@
         tools:layout_editor_absoluteY="67dp">
 
         <TextView
-            android:id="@+id/textViewCC"
+            android:id="@+id/textView39"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
             android:text="Cambiar mi contraseña"
             android:textColor="@color/textmenu"
-            android:textSize="30dp"
+            android:textSize="25dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/white"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textViewCC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Configuracion"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayoutCC"
             android:layout_width="351dp"
             android:layout_height="304dp"
-            android:layout_marginTop="30dp"
-            android:background="@color/white"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/shapewhite"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCC">
+            app:layout_constraintTop_toBottomOf="@+id/textView39">
 
 
             <TextView
