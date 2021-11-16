@@ -19,15 +19,15 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="105dp"
         android:layout_marginEnd="45dp"
         android:text="Termina tu registro"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
         android:layout_marginTop="45dp"
         android:text="Ingresa tu telefono"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -66,7 +66,7 @@
         android:layout_marginTop="20dp"
         android:text="Ingresa tu nombre"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etxtIngresaTelefono" />
 
@@ -91,7 +91,7 @@
         android:layout_marginTop="20dp"
         android:text="Repite tu contraseña"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etxtIngresaContraseniaRegistro" />
 
@@ -116,7 +116,7 @@
         android:layout_marginTop="20dp"
         android:text="Ingresa tu contraseña"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etxtIngresaNombre" />
 
