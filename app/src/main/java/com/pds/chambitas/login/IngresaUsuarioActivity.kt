@@ -3,6 +3,7 @@ package com.pds.chambitas.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.pds.chambitas.MenuActivity
 import com.pds.chambitas.R
 import kotlinx.android.synthetic.main.activity_ingresa_usuario.*
 
@@ -16,7 +17,7 @@ class IngresaUsuarioActivity : AppCompatActivity() {
         }
 
         btnSiguienteInUs.setOnClickListener {
-            startActivity(Intent(this,ContraseniaUsuarioActivity::class.java))
+            startActivity(Intent(this, MenuActivity::class.java))
         }
 
         textView4.setOnClickListener {
