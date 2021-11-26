@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context="body.ElegirdestinoFragment">
 
+    <fragment
+        android:id="@+id/mapelegirdestino"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context="body.ElegirdestinoFragment" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/ic_center_foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mapelegirdestino" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="355dp"
         android:layout_height="250dp"
@@ -48,6 +70,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/shapebotontext2"
             android:ems="10"
+            android:editable="false"
             android:hint="Ubicacion"
             android:inputType="textPersonName"
             android:textColorHint="@color/black"

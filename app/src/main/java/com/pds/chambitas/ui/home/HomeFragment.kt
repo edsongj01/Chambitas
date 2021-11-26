@@ -19,8 +19,6 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
 
-    private lateinit var mMap: GoogleMap
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,12 +27,7 @@ class HomeFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
         root.btnCentrarUbi.setOnClickListener {
-
-            val punto = LatLng(LocationService.loc.latitude, LocationService.loc.longitude)
-            mMap.addMarker(MarkerOptions().position(punto).title("Yo"))
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(punto))
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(punto,16.0f))
-            println("ENTRO")
+            println("Centrar")
         }
 
         val nav = Navigation.createNavigateOnClickListener(R.id.action_nav_home_to_pedirservicioFragment)
@@ -52,6 +45,15 @@ class HomeFragment : Fragment() {
     }
 
     private val callback = OnMapReadyCallback { googleMap ->
+        /**
+         * Manipulates the map once available.
+         * This callback is triggered when the map is ready to be used.
+         * This is where we can add markers or lines, add listeners or move the camera.
+         * In this case, we just add a marker near Sydney, Australia.
+         * If Google Play services is not installed on the device, the user will be prompted to
+         * install it inside the SupportMapFragment. This method will only be triggered once the
+         * user has installed Google Play services and returned to the app.
+         */
         val sydney = LatLng(-34.0, 151.0)
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))

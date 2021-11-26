@@ -69,7 +69,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Ingresa el mensaje"
-            android:inputType="textPersonName"
+            android:inputType="text"
             android:textColor="@color/black"
             android:textColorHint="@color/textmenu"
             android:textSize="20sp"
