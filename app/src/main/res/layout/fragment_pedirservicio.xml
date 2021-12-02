@@ -11,25 +11,28 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/nav_pedirServicio"
         android:layout_width="355dp"
-        android:layout_height="622dp"
+        android:layout_height="650dp"
+        android:layout_marginTop="127dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/shapewhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:layout_marginTop="28dp"
             android:layout_marginBottom="15dp"
             android:text="Destino"
             android:textColor="@color/textmenu"
             android:textSize="20dp"
             app:layout_constraintBottom_toTopOf="@+id/etxtIngresaDestino"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/etxtIngresaDestino"
@@ -91,7 +94,7 @@
         <ListView
             android:id="@+id/listaTrabajosReco"
             android:layout_width="295dp"
-            android:layout_height="230dp"
+            android:layout_height="260dp"
             android:layout_marginStart="30dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/shapebotontext"

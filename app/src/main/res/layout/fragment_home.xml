@@ -69,7 +69,7 @@
             android:id="@+id/imageView13"
             android:layout_width="20dp"
             android:layout_height="60dp"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="10dp"
             android:src="@drawable/ic_btn_foreground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
