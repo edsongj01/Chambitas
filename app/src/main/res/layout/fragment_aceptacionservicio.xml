@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Destino"
+                android:text="Estado"
                 android:textColor="@color/whiteB" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,7 +69,7 @@
                     android:id="@+id/textView22"
                     android:layout_width="250dp"
                     android:layout_height="match_parent"
-                    android:text="Casa"
+                    android:text="En camino"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     app:layout_constraintStart_toEndOf="@+id/imageView13"
@@ -92,13 +92,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="30dp"
-            android:layout_height="32dp"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/shapebotontext3"
             app:layout_constraintEnd_toStartOf="@+id/textView29"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView27">
+            app:layout_constraintTop_toBottomOf="@+id/imageView4">
 
             <ImageView
                 android:id="@+id/imageView14"
@@ -114,9 +114,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
             android:layout_width="30dp"
-            android:layout_height="32dp"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/shapebotontext3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView29">
@@ -218,35 +218,10 @@
             app:layout_constraintTop_toBottomOf="@+id/btnChat" />
 
         <TextView
-            android:id="@+id/textView27"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="110dp"
-            android:layout_marginTop="15dp"
-            android:text="Estado :"
-            android:textColor="@color/fondoEditText"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView25" />
-
-        <TextView
-            android:id="@+id/textView28"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:text="En camino"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/textView27"
-            app:layout_constraintTop_toBottomOf="@+id/textView26" />
-
-        <TextView
             android:id="@+id/textView29"
             android:layout_width="293dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="15dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:background="@drawable/shapebotontext2"
@@ -254,13 +229,13 @@
             android:textColor="@color/black"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
         <TextView
             android:id="@+id/textView30"
             android:layout_width="293dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
             android:background="@drawable/shapebotontext2"
@@ -270,6 +245,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout4"
             app:layout_constraintTop_toBottomOf="@+id/textView29" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/Cargando"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/btnCancelarServicio"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <pl.droidsonroids.gif.GifImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/cargando"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
             android:id="@+id/btnCancelarServicio"

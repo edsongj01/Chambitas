@@ -27,7 +27,8 @@ class AceptacionservicioFragment : Fragment() {
 
         val cancelar = Navigation.createNavigateOnClickListener(R.id.action_aceptacionservicioFragment_to_nav_home)
         root.btnCancelarServicio.setOnClickListener {
-            cancelar.onClick(it)
+            root.Cargando.setVisibility(View.GONE)
+            //cancelar.onClick(it)
         }
 
         val chat = Navigation.createNavigateOnClickListener(R.id.action_aceptacionservicioFragment_to_chatFragment)

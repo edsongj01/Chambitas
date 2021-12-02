@@ -30,7 +30,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="355dp"
-        android:layout_height="250dp"
+        android:layout_height="220dp"
         android:layout_marginBottom="30dp"
         android:background="@drawable/shapewhite"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,11 +70,10 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/shapebotontext2"
             android:ems="10"
-            android:editable="false"
             android:hint="Ubicacion"
             android:inputType="textPersonName"
             android:textColorHint="@color/black"
-            android:textSize="30dp"
+            android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 

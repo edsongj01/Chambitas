@@ -28,18 +28,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <TextView
             android:id="@+id/etxtDestinoConfi"
             android:layout_width="265dp"
             android:layout_height="62dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/shapebotontext2"
             android:ems="10"
-            android:editable="false"
+            android:gravity="center_vertical"
             android:hint="Casa"
             android:inputType="textPersonName"
             android:textColorHint="@color/black"
-            android:textSize="30dp"
+            android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout2"
             app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
@@ -56,18 +56,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etxtDestinoConfi" />
 
-        <EditText
+        <TextView
             android:id="@+id/etxtTrabajoConfi"
             android:layout_width="265dp"
             android:layout_height="62dp"
             android:layout_marginTop="15dp"
             android:background="@drawable/shapebotontext2"
             android:ems="10"
-            android:editable="false"
+            android:gravity="center_vertical"
             android:hint="Carpitero"
             android:inputType="textPersonName"
             android:textColorHint="@color/black"
-            android:textSize="30dp"
+            android:textSize="20dp"
             app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
 

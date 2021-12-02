@@ -38,7 +38,7 @@ class MenuActivity : AppCompatActivity(){
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_serviciossolicitados, R.id.nav_configuracion, R.id.nav_acercade, R.id.cerrarsesionFragment
+                R.id.nav_home, R.id.nav_serviciossolicitados, R.id.nav_configuracion, R.id.nav_acercade, R.id.cerrarsesionFragment, R.id.elegirdestinoFragment, R.id.aceptacionservicioFragment
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

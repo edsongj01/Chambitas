@@ -76,7 +76,7 @@
         android:layout_width="322dp"
         android:layout_height="51dp"
         android:backgroundTint="@color/boton"
-        android:inputType="text"
+        android:inputType="textCapSentences"
         android:hint="Usuario nuevo"
         android:textColor="@color/textmenu"
         android:textColorHint="@color/textmenu"

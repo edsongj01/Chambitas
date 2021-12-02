@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:backgroundTint="@color/boton"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:hint="Usuario nuevo"
                 android:textColor="@color/textmenu"
                 android:textColorHint="@color/textmenu"
