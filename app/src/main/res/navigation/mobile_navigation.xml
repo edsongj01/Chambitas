@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_home_to_pedirservicioFragment"
             app:destination="@id/pedirservicioFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_aceptacionservicioFragment"
+            app:destination="@id/aceptacionservicioFragment" />
     </fragment>
 
     <fragment
@@ -55,6 +58,9 @@
         <action
             android:id="@+id/action_pedirservicioFragment_to_elegirdestinoFragment"
             app:destination="@id/elegirdestinoFragment" />
+        <argument
+            android:name="serviceDetail"
+            app:argType="com.pds.chambitas.body.ServiceDetail" />
     </fragment>
     <fragment
         android:id="@+id/elegirdestinoFragment"
@@ -73,6 +79,9 @@
         <action
             android:id="@+id/action_confirmarservicioFragment_to_aceptacionservicioFragment"
             app:destination="@id/aceptacionservicioFragment" />
+        <argument
+            android:name="serviceDetail"
+            app:argType="com.pds.chambitas.body.ServiceDetail" />
     </fragment>
     <fragment
         android:id="@+id/aceptacionservicioFragment"
