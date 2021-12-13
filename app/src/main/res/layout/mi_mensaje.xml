@@ -15,6 +15,7 @@
         android:paddingHorizontal="16dp"
         android:paddingVertical="12dp"
         android:textColor="#FFF"
-        android:textSize="18dp" />
+        android:textSize="18dp"
+        android:layout_marginVertical="5dp"/>
 
 </LinearLayout>

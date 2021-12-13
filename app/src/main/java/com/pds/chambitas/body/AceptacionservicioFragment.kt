@@ -7,19 +7,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
+import androidx.navigation.NavDeepLinkBuilder
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.pds.chambitas.MainActivity
+import com.pds.chambitas.MenuActivity
 import com.pds.chambitas.R
 import com.pds.chambitas.util.Constants
 import com.pds.chambitas.util.Constants.Companion.SERVICE_CANCELADO
@@ -46,6 +52,11 @@ class AceptacionservicioFragment : Fragment() {
     var db = Firebase.firestore
     private lateinit var root: View
     private lateinit var registration: ListenerRegistration
+    private lateinit var prestadorRegistration: ListenerRegistration
+    var idService = ""
+
+    private lateinit var markerOptions: MarkerOptions
+    var mapMarker: Marker? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +75,7 @@ class AceptacionservicioFragment : Fragment() {
             //root.Cargando.setVisibility(View.GONE)
             //root.linearEstado.setVisibility(View.VISIBLE)
 
-            var idService = ""
+
             val updates = hashMapOf<String, Any>(
                 "estado" to SERVICE_CANCELADO
             )
@@ -85,15 +96,21 @@ class AceptacionservicioFragment : Fragment() {
                 }
         }
 
-        val chat = Navigation.createNavigateOnClickListener(R.id.action_aceptacionservicioFragment_to_chatFragment)
-        root.btnChat.setOnClickListener {
-            chat.onClick(it)
-        }
 
+        root.btnChat.setOnClickListener {
+            if (idService.isNotEmpty()) {
+                val chat = Navigation.createNavigateOnClickListener(R.id.action_aceptacionservicioFragment_to_chatFragment,
+                    bundleOf("idService" to idService)
+                )
+                chat.onClick(it)
+            }
+        }
+/*
         val finalizar = Navigation.createNavigateOnClickListener(R.id.action_aceptacionservicioFragment_to_finalizarservicioFragment)
         root.imageView7.setOnClickListener {
             finalizar.onClick(it)
         }
+ */
 
         return root
     }
@@ -106,7 +123,10 @@ class AceptacionservicioFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        registration.remove()
+
+        if(mapMarker != null) mapMarker!!.remove()
+        if (::registration.isInitialized) registration.remove()
+        if (::prestadorRegistration.isInitialized) prestadorRegistration.remove()
     }
 
     @SuppressLint("MissingPermission")
@@ -123,6 +143,9 @@ class AceptacionservicioFragment : Fragment() {
 
     private fun getServiceStatus() {
         val user = auth.currentUser
+
+
+
         registration = db.collection("servicios")
             .whereEqualTo("user_regular", user!!.uid)
             .whereEqualTo("servicioActivo", true)
@@ -140,43 +163,95 @@ class AceptacionservicioFragment : Fragment() {
                             var apiService: APIService? = null
                             apiService = ApiUtils.apiService
 
-                            // Manda notificacion
-                            apiService.sendNotification(
-                                POSTData(
-                                    "d5PkbDtBQ2mJ905dS-28r5:APA91bHd9GMh2fu2JbQZjG4w4g2O-pZy6hE3gYDAx43Ga9IykpR59cfOzWZxEI3hHFAyIlyoJN8PyP1JsDZwAnKxqcbzWAQyM456IjD_VJ4-NYPN8CP8E-8ePshWqXDO5D0Q9Nk2hwNx",
-                                    Data("request", doc.id)
-                                )
-                            ).enqueue(
-                                object: Callback<Void> {
-                                    override fun onResponse(call: Call<Void>,response: Response<Void>) {
-                                        if (response.isSuccessful) {
-                                            // Actualiza estado
-                                            val estado = hashMapOf<String, Any>(
-                                                "estado" to SERVICE_PENDIENTE
+                            db.collection("usuarios")
+                                .whereEqualTo("type", "prestador")
+                                .get()
+                                .addOnSuccessListener { usuarios ->
+                                    if (usuarios != null && !usuarios.isEmpty) {
+                                        usuarios.documents.forEach { usuario ->
+
+                                            Log.d("ServiceStatus", "Usuario: ${usuario.data!!["name"].toString()} - Token: ${usuario.data!!["token"].toString()}")
+
+                                            // Manda notificacion
+                                            apiService.sendNotification(
+                                                POSTData(
+                                                    usuario.data!!["token"].toString(),
+                                                    Data("request", doc.id)
+                                                )
+                                            ).enqueue(
+                                                object: Callback<Void> {
+                                                    override fun onResponse(call: Call<Void>,response: Response<Void>) {
+                                                        if (response.isSuccessful) {
+                                                            // Actualiza estado
+                                                            val estado = hashMapOf<String, Any>(
+                                                                "estado" to SERVICE_PENDIENTE
+                                                            )
+                                                            db.collection("servicios").document(doc.id).update(estado)
+                                                        }
+                                                    }
+
+                                                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                                                        Log.d("ServiceStatus", "No se pudo mandar la notificacion al usuario", t)
+                                                    }
+                                                }
                                             )
-                                            db.collection("servicios").document(doc.id).update(estado)
                                         }
                                     }
-
-                                    override fun onFailure(call: Call<Void>, t: Throwable) {
-                                        TODO("Not yet implemented")
-                                    }
                                 }
-                            )
+                                .addOnFailureListener {
+                                    Log.d("ServiceStatus", "No se pudieron obtener los usuarios", it)
+                                }
+
+
                         }
                         SERVICE_PENDIENTE -> {
                             Log.d("ServiceStatus", "Pendiente")
                         }
                         SERVICE_EN_CAMINO -> {
 
-
-
                             Log.d("ServiceStatus", "En camino")
                             Cargando.visibility = View.GONE
+
+                            idService = doc.id
+
+                            prestadorRegistration = db.collection("usuarios").document(doc.data["user_prestador"].toString())
+                                .addSnapshotListener { user, u_error ->
+                                    if (user != null) {
+                                        Log.d("ServiceStatus", "Location Prestador: (${user.data!!["latitude"].toString()} , ${user.data!!["longitude"].toString()})")
+
+                                        textView23.setText(user.data!!["name"].toString())
+                                        textView29.setText(doc.data["direction"].toString())
+                                        textView30.setText(doc.data["service"].toString())
+                                        textView25.setText(user.data!!["car"].toString())
+
+                                        val prestador_location = LatLng(
+                                            user.data!!["latitude"] as Double,
+                                            user.data!!["longitude"] as Double,
+                                        )
+
+                                        markerOptions = MarkerOptions()
+                                            .position(prestador_location)
+                                            .title("Prestador")
+
+                                        if (mapMarker == null) {
+                                            mapMarker = nMap.addMarker(markerOptions)
+                                        } else {
+                                            mapMarker!!.remove()
+                                            mapMarker = nMap.addMarker(markerOptions)
+                                            mapMarker!!.position = prestador_location
+                                        }
+                                    }
+                                }
                         }
                         SERVICE_TERMINADO -> {
                             Log.d("ServiceStatus", "Terminado")
-                            Navigation.findNavController(root).navigate(R.id.action_aceptacionservicioFragment_to_finalizarservicioFragment)
+                            //findNavController(requireActivity(), R.id.nav_host_fragment_content_menu).navigate(R.id.action_aceptacionservicioFragment_to_finalizarservicioFragment)
+                            val pendingIntentFragment = NavDeepLinkBuilder(requireContext())
+                                .setComponentName(MenuActivity::class.java)
+                                .setGraph(R.navigation.mobile_navigation)
+                                .setDestination(R.id.finalizarservicioFragment)
+                                .createPendingIntent()
+                            pendingIntentFragment.send()
                         }
                         SERVICE_CANCELADO -> {
                             Log.d("ServiceStatus", "Cancelado")
@@ -184,7 +259,13 @@ class AceptacionservicioFragment : Fragment() {
                                 "servicioActivo" to false
                             )
                             db.collection("servicios").document(doc.id).update(updates)
-                            Navigation.findNavController(root).navigate(R.id.action_aceptacionservicioFragment_to_nav_home)
+                            //findNavController(requireActivity(), R.id.nav_host_fragment_content_menu).navigate(R.id.action_aceptacionservicioFragment_to_nav_home)
+                            val pendingIntentFragment = NavDeepLinkBuilder(requireContext())
+                                .setComponentName(MenuActivity::class.java)
+                                .setGraph(R.navigation.mobile_navigation)
+                                .setDestination(R.id.nav_home)
+                                .createPendingIntent()
+                            pendingIntentFragment.send()
                         }
                     }
                 }

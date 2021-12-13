@@ -1,6 +1,7 @@
 package com.pds.chambitas.ui.home
 
 import android.annotation.SuppressLint
+import android.app.ActivityManager
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -13,6 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.commit
@@ -78,7 +80,10 @@ class HomeFragment : Fragment() {
         }
     }
 
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        startLocationService()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -153,6 +158,29 @@ class HomeFragment : Fragment() {
             nMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 19f))
         } catch (e: Exception) {
             e.printStackTrace()
+        }
+    }
+
+    private fun isLocationServiceRunning(): Boolean {
+        val activityManager: ActivityManager = requireActivity().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        if (activityManager != null) {
+            for (service in activityManager.getRunningServices(Integer.MAX_VALUE)) {
+                if (ForegroundLocationService::class.java.name.equals(service.service.className)) {
+                    if (service.foreground) {
+                        return true
+                    }
+                }
+            }
+            return false
+        }
+        return false
+    }
+
+    private fun startLocationService() {
+        if (!isLocationServiceRunning()){
+            val intent = Intent(context, ForegroundLocationService::class.java)
+            intent.action = Constants.ACTION_START_LOCATION_SERVICE
+            requireActivity().startService(intent)
         }
     }
 }

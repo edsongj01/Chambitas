@@ -16,6 +16,7 @@ import com.pds.chambitas.util.Constants
 import com.pds.chambitas.util.Constants.Companion.SERVICE_FINALIZADO
 import com.pds.chambitas.util.Constants.Companion.SERVICE_TERMINADO
 import kotlinx.android.synthetic.main.fragment_aceptacionservicio.view.*
+import kotlinx.android.synthetic.main.fragment_finalizarservicio.*
 import kotlinx.android.synthetic.main.fragment_finalizarservicio.view.*
 
 
@@ -23,6 +24,7 @@ class FinalizarservicioFragment : Fragment() {
 
     private lateinit var auth: FirebaseAuth
     private val db = Firebase.firestore
+    private var calificacion = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,12 +38,62 @@ class FinalizarservicioFragment : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_finalizarservicio, container, false)
 
+        // 1 estrella
+        root.imageView8.setOnClickListener {
+            root.imageView8.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView9.setImageResource(R.drawable.ic_estrella_foreground_white)
+            root.imageView10.setImageResource(R.drawable.ic_estrella_foreground_white)
+            root.imageView11.setImageResource(R.drawable.ic_estrella_foreground_white)
+            root.imageView12.setImageResource(R.drawable.ic_estrella_foreground_white)
+            calificacion = 1
+        }
+
+        // 2 estrellas
+        root.imageView9.setOnClickListener {
+            root.imageView8.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView9.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView10.setImageResource(R.drawable.ic_estrella_foreground_white)
+            root.imageView11.setImageResource(R.drawable.ic_estrella_foreground_white)
+            root.imageView12.setImageResource(R.drawable.ic_estrella_foreground_white)
+            calificacion = 2
+        }
+
+        // 3 estrellas
+        root.imageView10.setOnClickListener {
+            root.imageView8.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView9.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView10.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView11.setImageResource(R.drawable.ic_estrella_foreground_white)
+            root.imageView12.setImageResource(R.drawable.ic_estrella_foreground_white)
+            calificacion = 3
+        }
+
+        // 4 estrellas
+        root.imageView11.setOnClickListener {
+            root.imageView8.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView9.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView10.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView11.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView12.setImageResource(R.drawable.ic_estrella_foreground_white)
+            calificacion = 4
+        }
+
+        // 5 estrellas
+        root.imageView12.setOnClickListener {
+            root.imageView8.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView9.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView10.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView11.setImageResource(R.drawable.ic_estrella_foreground)
+            root.imageView12.setImageResource(R.drawable.ic_estrella_foreground)
+            calificacion = 5
+        }
+
         root.btnFinalizarServicio.setOnClickListener { view ->
 
             var idService = ""
             val updates = hashMapOf<String, Any>(
                 "estado" to SERVICE_FINALIZADO,
-                "calificacion" to 5,
+                "calificacion" to calificacion,
                 "servicioActivo" to false
             )
 

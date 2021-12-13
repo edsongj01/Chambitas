@@ -27,10 +27,20 @@ import androidx.core.app.ActivityCompat.startActivityForResult
 import android.graphics.BitmapFactory
 
 import android.R.attr.data
+import android.util.Base64
+import android.util.Log
 import android.widget.LinearLayout
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import java.io.ByteArrayOutputStream
 
 class ConfiguracionFragment : Fragment() {
+
+    private val auth = Firebase.auth
+    private val db = Firebase.firestore
+    private var profilePhoto: String = ""
 
     var cambiofoto: TextView? = null
 
@@ -38,17 +48,57 @@ class ConfiguracionFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val root: View = inflater.inflate(R.layout.fragment_configuracion, container, false)
 
-        cambiofoto = root.findViewById(R.id.btneditarfoto);
+        val user = auth.currentUser
+        db.collection("usuarios")
+            .document(user!!.uid)
+            .get()
+            .addOnSuccessListener { userProfile ->
+                if (userProfile != null && userProfile.exists()) {
+                    if (userProfile.data!!["photo"] != null) {
+                        val imageBytes = Base64.decode(userProfile.data!!["photo"].toString(), Base64.DEFAULT)
+                        val decodedImage = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+                        root.imageView16.setImageBitmap(decodedImage)
+                    }
+                    root.etxtIngresaUsuarioPer.setText(userProfile.data!!["name"].toString())
+                    root.etxtIngresaTelefonoPer.setText(userProfile.data!!["phone"].toString())
+                }
+            }
+            .addOnFailureListener {
+                Log.d("Perfil", "No se pudo consultar el perfil")
+            }
 
+        cambiofoto = root.findViewById(R.id.btneditarfoto);
+/*
         val cambiocontra =
             Navigation.createNavigateOnClickListener(R.id.action_nav_configuracion_to_cambiocontraFragment)
         root.btnCambiocontra.setOnClickListener {
             cambiocontra.onClick(it)
         }
+*/
 
+        root.btnPerfilCam.setOnClickListener {
+
+            val changes = hashMapOf<String, Any>(
+                "name" to root.etxtIngresaUsuarioPer.text.toString(),
+                "phone" to root.etxtIngresaTelefonoPer.text.toString(),
+            )
+            if (profilePhoto != "") {
+                changes.put("photo", profilePhoto)
+            }
+
+            db.collection("usuarios")
+                .document(user!!.uid)
+                .update(changes)
+                .addOnSuccessListener {
+                    Toast.makeText(requireContext(), "Cambios guardados correctamente", Toast.LENGTH_LONG).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(requireContext(), "Hubo un problema al guardar los cambios", Toast.LENGTH_LONG).show()
+                    Log.d("Perfil", "No se pudieron guardar los cambios", it)
+                }
+        }
         cambiofoto?.setOnClickListener {
             //requestPermission()
             //dispatchTakePictureIntent()
@@ -98,6 +148,14 @@ class ConfiguracionFragment : Fragment() {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             imageView16.setImageBitmap(imageBitmap)
             println("ESTA ES LA IMAGEN  " + imageBitmap)
+
+            val baos: ByteArrayOutputStream = ByteArrayOutputStream()
+            val bitmap = imageBitmap
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+            val imagesBytes = baos.toByteArray()
+            val imageString = Base64.encodeToString(imagesBytes, Base64.DEFAULT)
+            profilePhoto = imageString
+            Log.d("Perfil", "Image 64: ${imageString}")
         }
     }
 
